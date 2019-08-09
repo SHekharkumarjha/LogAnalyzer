@@ -6,5 +6,10 @@
 </head>
 <body>
 Log Analyzer
+<form action="/output" method="post">
+    Type Input: <input id="msg" type="text" name="msg"><br><br>
+    <input type="submit" value="Submit">
+
+</form>
 </body>
 </html>
