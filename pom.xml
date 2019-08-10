@@ -81,7 +81,15 @@
 			<artifactId>spring-data-mongodb</artifactId>
 			<version>2.1.6.RELEASE</version>
 		</dependency>
-	</dependencies>
+        <!-- https://mvnrepository.com/artifact/org.easybatch/easybatch-apache-commons-csv -->
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
+        <!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>4.1</version>
+        </dependency>
+    </dependencies>
 
 	<dependencyManagement>
 		<dependencies>
