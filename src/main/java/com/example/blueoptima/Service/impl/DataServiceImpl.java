@@ -3,8 +3,11 @@ package com.example.blueoptima.Service.impl;
 import com.example.blueoptima.Data.LogData;
 import com.example.blueoptima.Repository.DataRepository;
 import com.example.blueoptima.Service.DataService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 public class DataServiceImpl implements DataService {
@@ -13,17 +16,15 @@ public class DataServiceImpl implements DataService {
     DataRepository dataRepository;
 
     @Override
-    public LogData saveData(String id,String ipAdress,String userAgent,String statusCode,String requestType,String api,String user,String enterpriseId,String enterpriseName ) {
+    public LogData saveData(Map<String, String> values) throws JsonProcessingException {
         LogData logData=new LogData();
         logData.setId(UUID.randomUUID().toString());
-        logData.setIpAdress(ipAdress);
-        logData.setUserAgent(userAgent);
-        logData.setStatusCode(statusCode);
-        logData.setRequestType(requestType);
-        logData.setApi(api);
-        logData.setUser(user);
-        logData.setEnterpriseId(enterpriseId);
-        logData.setEnterpriseName(enterpriseName);
+        logData.setData(values);
         return dataRepository.save(logData);
+    }
+
+    @Override
+    public List<LogData> getLogDataByIpAddress(String ip){
+        return dataRepository.getAllByIpAddress(ip);
     }
 }
